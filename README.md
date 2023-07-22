@@ -1,2 +1,2 @@
 # java-jdbc
-Java project with JDBC and DAO pattern
+Java project with JDBC, mySQL and DAO pattern
