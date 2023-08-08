@@ -1,5 +1,6 @@
 package application;
 
+import java.util.Date;
 import java.util.List;
 
 import model.dao.DaoFactory;
@@ -14,22 +15,36 @@ public class Program {
 		
 		SellerDaoInterface sellerDao = DaoFactory.createSellerDao();
 		
-		//Seller seller = sellerDao.findById(7);
-//		Department department = new Department(1,null);
-//		
-//		List<Seller> sellers = sellerDao.findByDepartment(department);
-//		
-//		for(int i = 0;i<sellers.size();i++)
-//		{
-//			System.out.println(sellers.get(i));
-//		}
+		System.out.println("find by id:");
+		Seller seller = sellerDao.findById(7);
+		System.out.println(seller);
 		
-		List<Seller> sellers = sellerDao.findAll();
+		System.out.println("find by department:");
+		
+		Department department = new Department(1,null);
+		
+		List<Seller> sellers = sellerDao.findByDepartment(department);
+		
+		for(int i = 0;i<sellers.size();i++)
+		{
+			System.out.println(sellers.get(i));
+		}
+		
+		System.out.println("find all:");
+		sellers = sellerDao.findAll();
 		
 		for(Seller s : sellers)
 		{
 			System.out.println(s);
 		}
+		
+		System.out.println("insert:");
+		
+		seller = new Seller(null,"inserting","insert@sellerdao.com",new Date(),5000.0,department);
+			
+		sellerDao.insert(seller);
+		
+		
 		
 		
 	}
