@@ -40,9 +40,13 @@ public class Program {
 		
 		System.out.println("insert:");
 		
-		seller = new Seller(null,"inserting","insert@sellerdao.com",new Date(),5000.0,department);
+		seller = new Seller(null,"inserting with jdbc","insert@sellerdao.com",new Date(),5000.0,department);
 			
 		sellerDao.insert(seller);
+		
+		seller = new Seller(14,"editing with jdbc","insertingwithjdbc@sellerdao.com",new Date(),7000.0,new Department(3,null));
+		
+		sellerDao.update(seller);
 		
 		
 		
